@@ -1,0 +1,47 @@
+[package]
+authors = ["Bitconch Core Dev"]
+description = "Lightweight, event-driven WebSockets for Rust."
+documentation = "https://ws-rs.org/docs"
+keywords = ["websocket", "mio", "event-driven", "io", "web"]
+license = "MIT"
+name = "hawk-ws"
+readme = "README.md"
+repository = "https://github.com/hawk-lab/ws"
+version = "0.1.1"
+
+[dependencies]
+byteorder = "1.1"
+bytes = "0.4"
+httparse = "1.2"
+log = "0.3"
+mio = "0.6"
+rand = "0.3"
+sha1 = "0.2"
+slab = "0.3"
+url = "1.5"
+
+[dependencies.libc]
+optional = true
+version = "0.2"
+
+[dependencies.libz-sys]
+optional = true
+version = "1.0"
+
+[dependencies.openssl]
+optional = true
+version = "0.9"
+
+[dev-dependencies]
+clap = "2.27"
+env_logger = "0.4"
+term = "0.4"
+time = "0.1"
+
+[features]
+default = []
+permessage-deflate = [
+    "libz-sys",
+    "libc",
+]
+ssl = ["openssl"]
